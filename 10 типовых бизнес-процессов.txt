@@ -1,0 +1,43 @@
+			Автосервис. СRUD
+1.Заказ деталей- CREATE
+2.Договор с клиентом-UPDATE
+3.Прием деталей на склад-UPDATE
+4.Договор о времени сервиса-UPDATE
+5.Договор о оплате клиента-UPDATE
+6.Оплата- UPDATE is_paid
+7.Отдать машину клиенту - UPDATE
+8.Просмотр след клиента в сервис-READ
+9.Удаления записи о клиетн в сервис не приехал-DELETE
+10.Получения отзыва о сервисе -UPDATE
+
+
+
+
+Вывести название и стоимость товаров от 20 EUR.=
+
+SELECT ProductName,Price FROM [Products]
+WHERE Price >= 20
+
+
+
+
+Вывести страны поставщиков.=
+
+SELECT Country FROM [Suppliers]
+
+
+
+В упорядоченном по стоимости виде вывести название и стоимость товаров со
+ скидкой в 9% от всех поставщиков, кроме поставщика 1. =
+
+SELECT ProductName,SupplierID,Price, Price * .91 AS Price_low FROM [Products]
+WHERE NOT SupplierID= 1
+ORDER BY Price ASC
+
+
+
+Вывести контактные имена клиентов, кроме тех, что из France и USA.
+SELECT * FROM [Customers]
+WHERE NOT Country='France'
+AND
+NOT Country='USA'
