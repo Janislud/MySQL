@@ -1,0 +1,41 @@
+-- 1.Найти мин/стоимость товаров для каждой категории
+-- SELECT
+-- Products.CategoryId,
+-- MIN(Price) AS min_price
+-- FROM Products
+-- Group by CategoryID;
+
+-- 2.Вывести ТОП-3 стран по количеству доставленных заказов
+-- SELECT Customers.Country,
+-- Count(*) AS Number_of_orders_delivered
+-- FROM Orders
+-- JOIN Customers on Orders.CustomerID=Customers.CustomerID 
+-- GROUP BY Customers.Country
+-- ORDER BY Number_of_orders_delivered DESC
+-- LIMIT 3
+-- LIMIT 1 OFFSET 2 -выведит 3 елемент
+
+-- 3.Очистить тел/номер поставщикам из USA
+-- UPDATE Suppliers
+-- SET phone = ""
+-- WHERE Country = 'USA';
+
+-- 4.Вывести имена и фамилии (и ко-во заказов) менеджеров, у которых ко-во заказов менее 15
+-- SELECT 
+--     E.LastName,
+--     E.FirstName,
+--     COUNT(O.EmployeeID) AS order_count
+-- FROM Employees AS E
+-- JOIN Orders AS O ON E.EmployeeID = O.EmployeeID
+-- GROUP BY E.EmployeeID, E.LastName, E.FirstName
+-- HAVING order_count < 15;
+
+-- 5.Вывести товар, который находится на втором месте по ко-ву заказов
+-- SELECT 
+--    count(*) as count, 
+--   products.ProductName 
+--  FROM products  
+--  INNER JOIN orderdetails  ON products.ProductID = orderdetails.ProductID 
+--  GROUP BY products.ProductID 
+--  ORDER BY count DESC 
+--  LIMIT 1 OFFSET 1
